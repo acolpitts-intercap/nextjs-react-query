@@ -1,4 +1,4 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+This is a [Next.js](https://nextjs.org/) POC that demonstraights best practises for leveraging React Query v4 for remote state management.
 
 ## Getting Started
 
@@ -16,21 +16,16 @@ bun dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Project Structure
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+All source code is located inside the `./app` folder.
 
-## Learn More
+`_components`: React components. Note: `_` instructs Next.js App Router to ignore this folder (Private Folder)
 
-To learn more about Next.js, take a look at the following resources:
+`_utils`: React utils/helpers. Also ignored by Next.js App Router as it's marked private with the `_`
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+`hydration-stream-suspense`: Example page loading data on the client using expiremental ReactQueryStreamedHydration. This is the recommended approach when you do not care about SEO
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+`hydration`: Example page prefetching data on the server using hydration. This is the recommended approach when need SSR to boost SEO.
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+`initial-data`: Example page prefetching data on the server using props. Note: this approach is not recommended by the React Query team, and you should always aim to use the hydration and dehydration method for better performance and reliability.
