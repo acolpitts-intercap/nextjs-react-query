@@ -4,7 +4,7 @@ import ListUsers from "@components/stream-list-users";
 
 export default async function Page() {
   return (
-    <main style={{ maxWidth: 1200, marginInline: "auto", padding: 20 }}>
+    <main className="flex flex-col min-h-screen">
       <Counter />
       <Suspense
         fallback={

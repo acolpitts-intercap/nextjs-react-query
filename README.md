@@ -1,4 +1,4 @@
-This is a [Next.js](https://nextjs.org/) POC that demonstraights best practises for leveraging React Query v4 for remote state management.
+This is a [Next.js](https://nextjs.org/) POC that demonstraights best practises for leveraging React Query v5 for remote state management.
 
 ## Getting Started
 

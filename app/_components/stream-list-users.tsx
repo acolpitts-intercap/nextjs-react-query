@@ -1,7 +1,7 @@
 "use client";
 
 import { User } from "@app/_utils/types";
-import { useQuery } from "@tanstack/react-query";
+import { useSuspenseQuery } from "@tanstack/react-query";
 import React from "react";
 
 async function getUsers() {
@@ -12,10 +12,9 @@ async function getUsers() {
 
 export default function ListUsers() {
   const [count, setCount] = React.useState(0);
-  const { data, error } = useQuery<User[]>({
+  const { data, error } = useSuspenseQuery<User[]>({
     queryKey: ["stream-hydrate-users"],
     queryFn: () => getUsers(),
-    suspense: true,
     staleTime: 5 * 1000,
   });
 

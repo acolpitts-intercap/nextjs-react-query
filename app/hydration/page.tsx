@@ -12,7 +12,10 @@ async function getUsers() {
 
 export default async function Page() {
   const queryClient = getQueryClient();
-  await queryClient.prefetchQuery(["hydrate-users"], getUsers);
+  await queryClient.prefetchQuery({
+    queryKey: ["hydrate-users"],
+    queryFn: getUsers,
+  });
   const dehydratedState = dehydrate(queryClient);
 
   return (
